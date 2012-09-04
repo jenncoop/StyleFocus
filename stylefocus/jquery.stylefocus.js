@@ -5,9 +5,10 @@
 	var methods = {
 		init : function( options ) {
 			//create on/off checkbox
-			$('<div id="onOffBoxDiv" style="width: 100px; height: 50px; position: absolute; top: 0px; left: 0px; background-color: #cecece; z-index: 1000;"><form id="onOffForm"><input id="onOffBox" type="checkbox" name="onOffBox" checked="yes" />StyleFocus ON</form></div>').prependTo('body');
+			$('<div id="onOffBoxDiv"><form id="onOffForm"><input id="onOffBox" type="checkbox" name="onOffBox" checked="yes" />StyleFocus ON</form></div>').prependTo('body');
 						
-			$('#onOffBox').bind('mouseenter.styleFocus', methods.showHideOF);
+			$('#onOffBoxDiv').bind('mouseenter.styleFocus', methods.showOF);
+			$('#onOffBoxDiv').bind('mouseleave.styleFocus', methods.hideOF);
 						
 			
 				return $(this).each(function(){	
@@ -18,15 +19,14 @@
 			
 			
 		},
-		showHideOF : function(){
+		showOF : function(){		
+			
+			$('#onOffBoxDiv').animate({top: "-1px"});
+									 
+		},
+		hideOF : function(){
 		
-		var h = $('#onOffBoxDiv').css('height');		
-			if($('#onOffBoxDiv').css('height') == '50px'){
-				$('#onOffBoxDiv').animate({height:'10px'},200);
-			}
-			else{
-				$('#onOffBoxDiv').animate({height:50},200);
-			}
+			$('#onOffBoxDiv').animate({top: "-20px"});
 											 
 		},
 		
