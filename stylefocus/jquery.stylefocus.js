@@ -4,8 +4,8 @@
 	
 	var methods = {
 		init : function( options ) {
-			//create on off checkbox
-			$('<div id="onOffBox" style="width: 100px; height: 50px; position: absolute; top: 0px; left: 0px; background-color: #cecece; z-index: 1000;"><form id="onOffForm"><input id="onOffBox" type="checkbox" name="onOffBox" checked />StyleFocus ON</form></div>').prependTo('body');
+			//create on/off checkbox
+			$('<div id="onOffBoxDiv" style="width: 100px; height: 50px; position: absolute; top: 0px; left: 0px; background-color: #cecece; z-index: 1000;"><form id="onOffForm"><input id="onOffBox" type="checkbox" name="onOffBox" checked="yes" />StyleFocus ON</form></div>').prependTo('body');
 						
 			$('#onOffBox').bind('mouseenter.styleFocus', methods.showHideOF);
 						
@@ -20,22 +20,22 @@
 		},
 		showHideOF : function(){
 		
-		var h = $('#onOffBox').css('height');		
-			if($('#onOffBox').css('height') == '50px'){
-				$('#onOffBox').animate({height:'10px'},200);
+		var h = $('#onOffBoxDiv').css('height');		
+			if($('#onOffBoxDiv').css('height') == '50px'){
+				$('#onOffBoxDiv').animate({height:'10px'},200);
 			}
 			else{
-				$('#onOffBox').animate({height:50},200);
+				$('#onOffBoxDiv').animate({height:50},200);
 			}
 											 
 		},
 		
 		turnOnOff : function(){
-			if($('#onOffBox').attr('checked') == false){
-				$("#onOffBox").prop("checked", true);
+			if($('#onOffBoxDiv').attr('checked') == false){
+				$("#onOffBoxDiv").prop("checked", true);
 			}
-			else if($('#onOffBox').attr('checked') == true){
-				$("#onOffBox").prop("checked", false);
+			else if($('#onOffBoxDiv').attr('checked') == true){
+				$("#onOffBoxDiv").prop("checked", false);
 
 			}			
 		},
